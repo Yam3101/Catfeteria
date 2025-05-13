@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"name": "Luna",
+		"breed": "Siamese",
+		"personality": "Playful",
+		"rating": 4.8,
+		"level": 3,
+		"image": "🐱",
+		"color": "bg-neutral"
+	},
+	{
+		"id": 2,
+		"name": "Oliver",
+		"breed": "Persian",
+		"personality": "Lazy",
+		"rating": 4.5,
+		"level": 2,
+		"image": "😺",
+		"color": "bg-accent"
+	},
+	{
+		"id": 3,
+		"name": "Milo",
+		"breed": "Maine Coon",
+		"personality": "Curious",
+		"rating": 4.7,
+		"level": 4,
+		"image": "😸",
+		"color": "bg-secondary"
+	},
+	{
+		"id": 4,
+		"name": "Bella",
+		"breed": "Ragdoll",
+		"personality": "Affectionate",
+		"rating": 4.9,
+		"level": 5,
+		"image": "😽",
+		"color": "bg-light"
+	},
+	{
+		"id": 5,
+		"name": "Charlie",
+		"breed": "Scottish Fold",
+		"personality": "Quiet",
+		"rating": 4.4,
+		"level": 1,
+		"image": "🙀",
+		"color": "bg-neutral"
+	},
+	{
+		"id": 6,
+		"name": "Lucy",
+		"breed": "Sphynx",
+		"personality": "Energetic",
+		"rating": 4.6,
+		"level": 3,
+		"image": "😼",
+		"color": "bg-accent"
+	}
+]

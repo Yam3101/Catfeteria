@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+	:root {
+		--color-primary: #221000;
+		--color-secondary: #602f04;
+		--color-accent: #c5820e;
+		--color-neutral: #efe1c0;
+		--color-light: #fcfcfc;
+	}
+}
+
+/* Custom styles that extend Tailwind */
+.bg-primary {
+	background-color: var(--color-primary);
+}
+
+.bg-secondary {
+	background-color: var(--color-secondary);
+}
+
+.bg-accent {
+	background-color: var(--color-accent);
+}
+
+.bg-neutral {
+	background-color: var(--color-neutral);
+}
+
+.bg-light {
+	background-color: var(--color-light);
+}
+
+.text-primary {
+	color: var(--color-primary);
+}
+
+.text-secondary {
+	color: var(--color-secondary);
+}
+
+.text-accent {
+	color: var(--color-accent);
+}
+
+.text-neutral {
+	color: var(--color-neutral);
+}
+
+.text-light {
+	color: var(--color-light);
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
