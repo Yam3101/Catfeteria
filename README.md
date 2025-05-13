@@ -1,12 +1,52 @@
-# React + Vite
+# Catfeteria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cozy cat-themed web application where you can adopt virtual cats, play mini-games, and shop for cat accessories in a warm café atmosphere.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cat Adoption**: Browse and adopt virtual cats with unique personalities and traits
+- **Mini Games**: Enjoy cat-themed mini games to earn rewards
+- **Cat Shop**: Purchase toys, food, and accessories for your virtual cats
+- **Responsive Design**: Fully responsive layout that works on mobile and desktop
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- React Router
+- Tailwind CSS
+- React Icons
+- HeadlessUI
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+4. Open your browser and navigate to http://localhost:5173
+
+## Project Structure
+
+- `/src/components`: Reusable UI components
+- `/src/pages`: Main application pages (Home, Games, Shop, Cats)
+- `/src/data`: JSON data files
+- `/src/assets`: Images and other static assets
+
+## Color Palette
+
+The application uses a warm café-inspired color palette:
+
+- Primary: Rich coffee brown (#221000)
+- Secondary: Mocha brown (#602f04)
+- Accent: Caramel/honey (#c5820e)
+- Neutral: Creamy beige (#efe1c0)
+- Light: Clean white (#fcfcfc)
+
+## Screenshots
+
+[Coming soon]
