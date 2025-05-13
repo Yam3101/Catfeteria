@@ -8,13 +8,12 @@ import {
 	FaTimes,
 	FaUser,
 	FaHeart,
-	FaSignOutAlt,
 } from "react-icons/fa";
 import { useAuth } from "../lib/auth/AuthContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { user, logout } = useAuth();
+	const { user } = useAuth();
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -26,12 +25,6 @@ const Navbar = () => {
 		{ to: "/shop", label: "Shop", icon: <FaShoppingBag /> },
 		{ to: "/cats", label: "Cats", icon: <FaHeart /> },
 	];
-
-	const handleLogout = () => {
-		logout();
-		// Close mobile menu if open
-		if (isMenuOpen) setIsMenuOpen(false);
-	};
 
 	return (
 		<nav className="bg-light py-4 sticky top-0 z-50 shadow-md text-primary">
@@ -64,23 +57,13 @@ const Navbar = () => {
 					{/* User Actions */}
 					<div className="hidden md:flex items-center space-x-4">
 						{user ? (
-							<>
-								<Link
-									to="/profile"
-									className="bg-secondary hover:bg-primary text-light px-4 py-2 rounded-lg transition-colors duration-300 flex items-center"
-								>
-									<FaUser className="mr-2 text-light" />
-									Profile
-								</Link>
-								<button
-									type="button"
-									onClick={handleLogout}
-									className="bg-accent hover:bg-primary text-light px-4 py-2 rounded-lg transition-colors duration-300 flex items-center"
-								>
-									<FaSignOutAlt className="mr-2 text-light" />
-									Logout
-								</button>
-							</>
+							<Link
+								to="/profile"
+								className="bg-secondary hover:bg-primary text-light px-4 py-2 rounded-lg transition-colors duration-300 flex items-center"
+							>
+								<FaUser className="mr-2 text-light" />
+								Profile
+							</Link>
 						) : (
 							<Link
 								to="/login"
@@ -127,24 +110,14 @@ const Navbar = () => {
 								</NavLink>
 							))}
 							{user ? (
-								<>
-									<Link
-										to="/profile"
-										className="bg-secondary hover:bg-primary text-center text-light py-2 px-3 rounded-lg transition-colors duration-300 flex items-center"
-										onClick={() => setIsMenuOpen(false)}
-									>
-										<FaUser className="mr-2" />
-										Profile
-									</Link>
-									<button
-										type="button"
-										onClick={handleLogout}
-										className="bg-accent hover:bg-primary text-center text-light py-2 px-3 rounded-lg transition-colors duration-300 flex items-center"
-									>
-										<FaSignOutAlt className="mr-2" />
-										Logout
-									</button>
-								</>
+								<Link
+									to="/profile"
+									className="bg-secondary hover:bg-primary text-center text-light py-2 px-3 rounded-lg transition-colors duration-300 flex items-center"
+									onClick={() => setIsMenuOpen(false)}
+								>
+									<FaUser className="mr-2" />
+									Profile
+								</Link>
 							) : (
 								<Link
 									to="/login"

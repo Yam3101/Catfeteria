@@ -1,8 +1,30 @@
-// Simple client-side authentication for development
+// Simple client-side authentication for development with localStorage persistence
 
-// Storage for users and cats
-const users = [];
-const userCats = [];
+// Initialize storage from localStorage or create empty arrays
+const getStoredUsers = () => {
+	const storedUsers = localStorage.getItem("catfeteria_users");
+	return storedUsers ? JSON.parse(storedUsers) : [];
+};
+
+const getStoredUserCats = () => {
+	const storedUserCats = localStorage.getItem("catfeteria_user_cats");
+	return storedUserCats ? JSON.parse(storedUserCats) : [];
+};
+
+// Storage for users and cats - using objects to maintain reference while allowing updates
+const userData = {
+	users: getStoredUsers(),
+	userCats: getStoredUserCats(),
+};
+
+// Helper function to save data to localStorage
+const saveToLocalStorage = () => {
+	localStorage.setItem("catfeteria_users", JSON.stringify(userData.users));
+	localStorage.setItem(
+		"catfeteria_user_cats",
+		JSON.stringify(userData.userCats),
+	);
+};
 
 // Special Nick cat data
 const nickCat = {
@@ -29,16 +51,16 @@ function generateId() {
 }
 
 // Registration function
-export async function registerUser(userData) {
-	const { username, email, password } = userData;
+export async function registerUser(userDetails) {
+	const { username, email, password } = userDetails;
 
 	// Check if username already exists
-	if (users.find((u) => u.username === username)) {
+	if (userData.users.find((u) => u.username === username)) {
 		return { success: false, error: "Username already taken" };
 	}
 
 	// Check if email already exists
-	if (users.find((u) => u.email === email)) {
+	if (userData.users.find((u) => u.email === email)) {
 		return { success: false, error: "Email already registered" };
 	}
 
@@ -59,7 +81,7 @@ export async function registerUser(userData) {
 		createdAt: Date.now(),
 	};
 
-	users.push(newUser);
+	userData.users.push(newUser);
 
 	// Create token - just base64 encode the userId for simplicity
 	const token = btoa(userId);
@@ -81,7 +103,7 @@ export async function registerUser(userData) {
 		userCatId: generateId(),
 	};
 
-	userCats.push({
+	userData.userCats.push({
 		id: randomCat.userCatId,
 		userId,
 		catId: randomCat.id,
@@ -96,7 +118,7 @@ export async function registerUser(userData) {
 		const userCatId = generateId();
 		specialCat = { ...nickCat, userCatId };
 
-		userCats.push({
+		userData.userCats.push({
 			id: userCatId,
 			userId,
 			catId: nickCat.id,
@@ -105,6 +127,9 @@ export async function registerUser(userData) {
 			acquired: Date.now(),
 		});
 	}
+
+	// Save to localStorage
+	saveToLocalStorage();
 
 	return {
 		success: true,
@@ -126,7 +151,7 @@ export async function loginUser(credentials) {
 	const { emailOrUsername, password } = credentials;
 
 	// Find user
-	const user = users.find(
+	const user = userData.users.find(
 		(u) => u.username === emailOrUsername || u.email === emailOrUsername,
 	);
 
@@ -142,7 +167,7 @@ export async function loginUser(credentials) {
 	const token = btoa(user.id);
 
 	// Get user's cats
-	const cats = userCats.filter((uc) => uc.userId === user.id);
+	const cats = userData.userCats.filter((uc) => uc.userId === user.id);
 
 	return {
 		success: true,
@@ -162,7 +187,7 @@ export async function loginUser(credentials) {
 export function verifyToken(token) {
 	try {
 		const userId = atob(token);
-		const user = users.find((u) => u.id === userId);
+		const user = userData.users.find((u) => u.id === userId);
 
 		if (!user) {
 			return { success: false, error: "Invalid token" };
@@ -183,13 +208,13 @@ export function verifyToken(token) {
 
 // Get user profile
 export async function getUserProfile(userId) {
-	const user = users.find((u) => u.id === userId);
+	const user = userData.users.find((u) => u.id === userId);
 
 	if (!user) {
 		return { success: false, error: "User not found" };
 	}
 
-	const cats = userCats.filter((uc) => uc.userId === userId);
+	const cats = userData.userCats.filter((uc) => uc.userId === userId);
 
 	return {
 		success: true,

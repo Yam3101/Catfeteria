@@ -11,6 +11,7 @@ import Cats from "./pages/Cats";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Profile from "./pages/Profile";
+import Admin from "./pages/Admin";
 import { AuthProvider, useAuth } from "./lib/auth/AuthContext";
 
 // Protected Route component
@@ -66,6 +67,9 @@ function AppContent() {
 							</ProtectedRoute>
 						}
 					/>
+
+					{/* Admin route - not requiring protection for development purposes */}
+					<Route path="/admin" element={<Admin />} />
 
 					{/* Fallback route */}
 					<Route path="*" element={<Navigate to="/" replace />} />
