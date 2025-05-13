@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Cat head -->
+  <circle cx="100" cy="100" r="70" fill="#8C7853" />
+  
+  <!-- Cat ears -->
+  <polygon points="65,45 45,15 55,50" fill="#8C7853" stroke="#000" stroke-width="2" />
+  <polygon points="135,45 155,15 145,50" fill="#8C7853" stroke="#000" stroke-width="2" />
+  
+  <!-- Tabby stripes -->
+  <path d="M70,80 Q100,95 130,80" stroke="#5D4037" stroke-width="3" fill="none" />
+  <path d="M65,100 Q100,115 135,100" stroke="#5D4037" stroke-width="3" fill="none" />
+  <path d="M70,120 Q100,135 130,120" stroke="#5D4037" stroke-width="3" fill="none" />
+  
+  <!-- Eyes -->
+  <ellipse cx="75" cy="85" rx="10" ry="15" fill="#F5F5DC" />
+  <ellipse cx="125" cy="85" rx="10" ry="15" fill="#F5F5DC" />
+  <ellipse cx="75" cy="85" rx="5" ry="10" fill="#000" />
+  <ellipse cx="125" cy="85" rx="5" ry="10" fill="#000" />
+  <ellipse cx="72" cy="80" rx="2" ry="2" fill="#FFF" />
+  <ellipse cx="122" cy="80" rx="2" ry="2" fill="#FFF" />
+  
+  <!-- Nose and mouth -->
+  <path d="M100,105 L95,115 Q100,120 105,115 Z" fill="#FFB6C1" />
+  <path d="M100,115 L100,125" stroke="#000" stroke-width="2" fill="none" />
+  <path d="M100,125 Q90,135 80,130" stroke="#000" stroke-width="2" fill="none" />
+  <path d="M100,125 Q110,135 120,130" stroke="#000" stroke-width="2" fill="none" />
+  
+  <!-- Whiskers -->
+  <line x1="90" y1="115" x2="60" y2="110" stroke="#000" stroke-width="1" />
+  <line x1="90" y1="118" x2="60" y2="120" stroke="#000" stroke-width="1" />
+  <line x1="90" y1="121" x2="60" y2="130" stroke="#000" stroke-width="1" />
+  <line x1="110" y1="115" x2="140" y2="110" stroke="#000" stroke-width="1" />
+  <line x1="110" y1="118" x2="140" y2="120" stroke="#000" stroke-width="1" />
+  <line x1="110" y1="121" x2="140" y2="130" stroke="#000" stroke-width="1" />
+</svg> 

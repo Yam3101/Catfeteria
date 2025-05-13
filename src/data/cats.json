@@ -58,5 +58,38 @@
 		"level": 3,
 		"image": "😼",
 		"color": "bg-accent"
+	},
+	{
+		"id": 7,
+		"name": "Mila",
+		"breed": "Siamese",
+		"personality": "Lazy",
+		"rating": 4.7,
+		"level": 3,
+		"image": "/mila.svg",
+		"color": "bg-neutral",
+		"isSpecial": false
+	},
+	{
+		"id": 8,
+		"name": "Mia",
+		"breed": "Turkish Angora",
+		"personality": "Playful",
+		"rating": 4.6,
+		"level": 4,
+		"image": "/mia.svg",
+		"color": "bg-accent",
+		"isSpecial": false
+	},
+	{
+		"id": 9,
+		"name": "Leo",
+		"breed": "Bengal",
+		"personality": "Playful",
+		"rating": 4.8,
+		"level": 4,
+		"image": "/1.svg",
+		"color": "bg-secondary",
+		"isSpecial": false
 	}
 ]

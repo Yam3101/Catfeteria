@@ -4,9 +4,10 @@ import { FaStar, FaHeart } from "react-icons/fa";
 const CatCard = ({ cat }) => {
 	// Check if the image is an emoji (typically 1-2 characters) or a URL
 	const isEmoji = cat.image?.length <= 2;
+	const isSvg = cat.image?.endsWith(".svg");
 
 	return (
-		<div className="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl border border-gray-200 flex flex-col">
+		<div className="bg-black rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col">
 			{/* Cat Image */}
 			<div className="p-4 flex-grow flex items-center justify-center">
 				<div className="bg-primary/5 rounded-lg aspect-square w-full flex items-center justify-center">
@@ -16,7 +17,11 @@ const CatCard = ({ cat }) => {
 						<img
 							src={cat.image}
 							alt={cat.name}
-							className="w-full h-full object-cover rounded-lg"
+							className={`${
+								isSvg
+									? "w-4/5 h-4/5 object-contain"
+									: "w-full h-full object-cover"
+							} rounded-lg`}
 						/>
 					)}
 				</div>
@@ -45,13 +50,13 @@ const CatCard = ({ cat }) => {
 				<div className="flex gap-2">
 					<button
 						type="button"
-						className="flex-1 bg-secondary text-white font-bold py-2 rounded-md transition-colors duration-300"
+						className="flex-1 bg-primary hover:bg-secondary text-white font-bold py-2 rounded-md transition-colors duration-300"
 					>
 						Adopt
 					</button>
 					<button
 						type="button"
-						className="w-10 aspect-square flex items-center justify-center rounded-sm bg-[#221000] hover:bg-rose-600 text-light duration-200"
+						className="w-10 aspect-square bg-accent hover:bg-secondary text-primary hover:text-white flex items-center justify-center rounded-md transition-colors duration-300"
 					>
 						<FaHeart />
 					</button>
